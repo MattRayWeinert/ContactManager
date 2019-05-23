@@ -1,52 +1,48 @@
+<!DOCTYPE html>
 <html>
+<head>
+    <title> ConMan </title>
+    <link rel="stylesheet" href="./css/style.css">
+</head>
 
-  <head>
-    <title> Login and Registration </title>
-    <link rel="stylesheet" href="style.css">
-  </head>
+<body>
+<div class="login-bg">
+    <div class="form">
+    <h2 style="color: #4CAF50">Contact Manager</h2>
 
-  <body>
-    <div class="login-bg">
-      <div class="form">
+    <form class="login" method="post" action="/API/login.php">
+    <input type="text" name="username" placeholder="Username"><br><br>
+    <input type="password" name="password" placeholder="Password"><br><br>
+    <input type="submit" style="background-color: #4CAF50 !important; color:#ffffff !important;" value="Login">
+    <p class="message"> Not registered? <a href="#"> REGISTER </a>
+    </form>
 
-        <form class="login">
-          <input type="text" placeholder="Name"/>
-          <input type="text" placeholder="Password"/>
-          <button> Login </button>
-          <p class="message"> Not registered? <a href="#"> REGISTER </a>
-          </p>
-        </form>
+    <form class="register" method="post" action="/API/register.php">
+        <input type="text" name="registerUser" placeholder="Username"><br><br>
+        <input type="text" name="confirmUser" placeholder="Confirm Username"><br><br>
+        <input type="password" name="registerPassword" placeholder="Password"><br><br>
+        <input type="password" name="confirmPassword" placeholder="Confirm Password"><br><br>
+        <input type="submit" style="background-color: #4CAF50 !important; color:#ffffff !important;" value="Register">
+        <p class="message"> Already registered? <b href="#"> LOGIN </b> </p>
+    </form>
 
-        <form class="register">
-          <input type="text" placeholder="Name"/>
-          <input type="text" placeholder="Confirm name"/>
-          <input type="text" placeholder="Password"/>
-          <input type="text" placeholder="Confirm password"/>
-          <button> Register </button>
-          <p class="message"> Already registered? <b href="#"> LOGIN </a>
-          </p>
-        </form>
-
-      </div>
     </div>
+</div>
 
-    <script src='https://code.jquery.com/jquery-3.2.1.min.js'>
-    </script>
+<script src='https://code.jquery.com/jquery-3.2.1.min.js'></script>
 
-    <script>
-    $('.message a').click(function()
-    {
-      $('form').animate({height: "toggle", opacity: "toggle"}, "slow");
-    })
-    </script>
+<script>
+$('.message a').click(function()
+{
+  $('form').animate({height: "toggle", opacity: "toggle"}, "slow");
+})
+</script>
 
-    <script>
-    $('.message b').click(function()
-    {
-      $('form').animate({height: "toggle", opacity: "toggle"}, "slow");
-    })
-    </script>
-
-  </body>
-
+<script>
+$('.message b').click(function()
+{
+  $('form').animate({height: "toggle", opacity: "toggle"}, "slow");
+})
+</script>
+</body>
 </html>
