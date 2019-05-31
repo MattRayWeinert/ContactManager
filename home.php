@@ -36,16 +36,10 @@ function addContact()
 
 //function searchContact()
 
-//function logout() [logs user out upon closing browser window]
-
-window.onunload = function ()
-{
-  <?php session_unset(); session_destroy();?>
-}
 </script>
 
  <title>Home</title>
- <link rel="stylesheet" href="./css/style.css">
+ <link rel="stylesheet" href="./css/style2.css">
  <style>
     table
     {
@@ -71,7 +65,28 @@ window.onunload = function ()
     {
     text-align: center;
     }
+
+    .topright
+    {
+    margin-top: 5px;
+    margin-right: 8px;
+    position:absolute;
+    top:0;
+    right:0;
+    }
+
+    a:link
+    {
+    text-decoration: none;
+    }
+    a:visited
+    {
+    text-decoration: none;
+    }
 </style>
+
+<button type="button" class="topright"> <a href='/API/logout.php'>Logout</a> </button>
+
 </head>
 <body>
  <h1 class="header" style="color: #4CAF50">Contact Manager</h1>
