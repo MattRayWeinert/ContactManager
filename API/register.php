@@ -26,8 +26,7 @@ if (mysqli_connect_error()) {
         echo "Username is already taken";
     } else {
         mysqli_query($conn, "INSERT INTO users (Username, Password) VALUES ('$registerUser', '$registerPassword')");
-        $_SESSION['isLoggedIn']="true";
-        header("Location: http://www.ucfconman.com/home.php");
+        header("Location: http://www.ucfconman.com/#");
     }
 }
 }
