@@ -1,9 +1,13 @@
 <?php
+session_regenerate_id( true );\
+session_set_cookie_params(0); 
+session_start();
  $registerUser = filter_input(INPUT_POST, 'registerUser');
  $confirmUser = filter_input(INPUT_POST, 'confirmUser');
  $registerPassword = filter_input(INPUT_POST, 'registerPassword');
  $confirmPassword = filter_input(INPUT_POST, 'confirmPassword');
 if (!empty($registerUser) && ($registerUser == $confirmUser)){
+    echo "1";
 if (!empty($registerPassword) && $registerPassword == $confirmPassword){
 $host = "localhost";
 $dbusername = "unit_conman";
@@ -23,7 +27,14 @@ if (mysqli_connect_error()) {
         echo "Username is already taken";
     } else {
         mysqli_query($conn, "INSERT INTO users (Username, Password) VALUES ('$registerUser', '$registerPassword')");
-        echo "SUNGS IS HARDSTUCK GOLD LUL LUL LUL";
+        $_SESSION['isLoggedIn']="true";
+        if($_SESSION['isLoggedIn'] == "true")
+        {
+            header("Location: http://www.ucfconman.com/home.php");
+        }
+        else{
+            echo "Please log in.";
+        }
     }
 }
 }
