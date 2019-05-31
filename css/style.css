@@ -1,6 +1,6 @@
 body
 {
-  background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url(../img/pic1.jpg);
+  background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url(../img/gradient.jpg);
   height: 100vh;
   background-size: cover;
   background-position: center;
@@ -11,6 +11,17 @@ body
   width: 360px;
   padding: 10% 0 0;
   margin: auto;
+}
+
+.contact-form
+{
+  position: relative;
+  z-index: 1;
+  background: rgba(2, 4, 3, 0.5);
+  max-width: 360px;
+  margin: 0 auto 100px;
+  padding: 45px;
+  text-align: center;
 }
 
 .form
@@ -81,3 +92,23 @@ body
 {
   display: none;
 }
+
+/* ------------------------------------------- HOME */
+
+#table
+{
+border-collapse: collapse;
+width: 100%;
+color: #588c7e;
+font-family: monospace;
+font-size: 25px;
+text-align: left;
+} 
+
+#th
+{
+background-color: #588c7e;
+color: white;
+}
+
+#tr:nth-child(even) {background-color: #f2f2f2}
