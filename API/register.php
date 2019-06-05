@@ -6,6 +6,8 @@ session_start();
  $confirmUser = filter_input(INPUT_POST, 'confirmUser');
  $registerPassword = filter_input(INPUT_POST, 'registerPassword');
  $confirmPassword = filter_input(INPUT_POST, 'confirmPassword');
+ $hashPassword = crypt($registerPassword, 'salt');
+
 if (!empty($registerUser) && ($registerUser == $confirmUser)){
 if (!empty($registerPassword) && $registerPassword == $confirmPassword){
 $host = "localhost";
@@ -25,7 +27,7 @@ if (mysqli_connect_error()) {
     if(mysqli_num_rows($query)) {
         echo "Username is already taken";
     } else {
-        mysqli_query($conn, "INSERT INTO users (Username, Password) VALUES ('$registerUser', '$registerPassword')");
+        mysqli_query($conn, "INSERT INTO users (Username, Password) VALUES ('$registerUser', '$hashPassword')");
         header("Location: http://www.ucfconman.com/#");
     }
 }

@@ -1,6 +1,4 @@
 <?php
-	session_regenerate_id( true );
-	session_set_cookie_params(0); 
 	session_start();
 
     $inData = getRequestInfo();
@@ -9,9 +7,7 @@
     $lastName = $inData["lastName"];
 	$phoneNumber = $inData["phoneNumber"];
 	$email = $inData["email"];
-
 	$conn = new mysqli("localhost", "unit_conman", "qwerty101", "unit_database");
-
 	if ($conn->connect_error) 
 	{
 		returnWithError( $conn->connect_error );
