@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <script type="text/javascript" src="/js/code.js"></script>
     <title> ConMan </title>
     <link rel="stylesheet" href="./css/style.css">
 </head>
@@ -13,7 +14,7 @@
     <form class="login" method="post" action="/API/login.php">
     <input type="text" name="username" placeholder="Username"><br><br>
     <input type="password" name="password" placeholder="Password"><br><br>
-    <input type="submit" style="background-color: #4CAF50 !important; color:#ffffff !important;" value="Login">
+    <input type="submit" style="background-color: #4CAF50 !important; color:#ffffff !important;" value="Login" onclick="addContact();">
     <p class="message"> Not registered? <a href="#"> REGISTER </a>
     </form>
 
