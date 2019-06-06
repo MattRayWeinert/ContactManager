@@ -1,6 +1,14 @@
 <?php
-  session_start();
-  $id = $_SESSION["userid"];
+session_start();
+$id = $_SESSION["userid"];
+$conn = mysqli_connect("localhost", "unit_conman", "qwerty101", "unit_database");
+// Check connection
+if ($conn->connect_error)
+{
+die("Connection failed: " . $conn->connect_error);
+}
+$sql = "SELECT id, firstName, lastName, phoneNumber, email FROM contacts where id = $id";
+$result = $conn->query($sql);
 ?>
 
 <!DOCTYPE html>
@@ -109,23 +117,13 @@
     <th></th>
   </tr>
   <?php
-  $conn = mysqli_connect("localhost", "unit_conman", "qwerty101", "unit_database");
-  // Check connection
-  if ($conn->connect_error)
-  {
-  die("Connection failed: " . $conn->connect_error);
-  }
-  $sql = "SELECT id, firstName, lastName, phoneNumber, email FROM contacts";
-  $result = $conn->query($sql);
   if ($result->num_rows > 0)
     {
       // output data of each row
       while($row = $result->fetch_assoc())
       {
-        if($id == $row["id"]) {
-            echo "<tr><td>" . $row["firstName"] . "</td><td>" . $row["lastName"] . "</td><td>"
-            . $row["phoneNumber"]. "</td><td>" . $row["email"]. "</td><td><a href=\"deleteContact.php?id=".$row['id']."&firstName=".$row['firstName']."&lastName=".$row['lastName']."\">Delete</a></td></tr>";
-          }
+        echo "<tr><td>" . $row["firstName"] . "</td><td>" . $row["lastName"] . "</td><td>"
+        . $row["phoneNumber"]. "</td><td>" . $row["email"]. "</td><td><a href=\"deleteContact.php?id=".$row['id']."&firstName=".$row['firstName']."&lastName=".$row['lastName']."\">Delete</a></td></tr>";
       }
       echo "</table>";
     } else { echo "0 results"; }
