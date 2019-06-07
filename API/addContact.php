@@ -1,10 +1,10 @@
 <?php
 	session_start();
 
-    $inData = getRequestInfo();
-    $id = $_SESSION["userid"];
-    $firstName = $inData["firstName"];
-    $lastName = $inData["lastName"];
+	$inData = getRequestInfo();
+	$id = $_SESSION["userid"];
+	$firstName = $inData["firstName"];
+	$lastName = $inData["lastName"];
 	$phoneNumber = $inData["phoneNumber"];
 	$email = $inData["email"];
 	$conn = new mysqli("localhost", "unit_conman", "qwerty101", "unit_database");
